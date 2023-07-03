@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>MERCADOS</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/mercado/mercados.css' %}">{% endblock %}
+
+{% block body %}
+<div class="mainpage">
+    <ul>
+        {% if mercados %} 
+        {% for mercado in mercados %}
+        <li class="container-mercado">
+            <div class="btns">
+                <a href="{% url 'page_editar_mercado' mercado.id %}">editar</a>
+
+                <a href="{% url 'remover_mercado' mercado.id %}">remover</a>
+            </div>
+            <a href="{% url 'mercado_id' mercado.id %}"  style="text-decoration: none;" >
+                <div class="list-head" style="text-decoration: none;">
+                    
+                </div>
+                <div class="list-body">
+                    <div class="titulo-lista">
+                        {{ mercado.nome }}
+                    </div>
+                    <div class="desc-lista">
+                        {{ mercado.endereco }}
+                    </div>
+
+                </div>
+            </a>
+           
+        </li>
+        {% endfor %}
+
+
+        {% else %}
+
+
+        <div class="no_receitas">
+
+            <h1>{{request.user}} Você ainda não cadastrou nenhum produto</h1>
+            <a href="{% url 'page_adiciona_produto' %}">
+                <figure class="gif">
+                    <img src="{% static 'midias/gifs/wired-lineal-245-edit-document.gif' %}">
+                  </figure>
+            </a>
+        </div>
+
+
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

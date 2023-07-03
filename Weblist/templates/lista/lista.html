@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>LISTA {{ lista.nome }}</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/lista/verLista.css' %}">
+{% endblock %}
+{% block body %}
+<div class="mainpage">
+    <ul>
+        <li class="container-lista">
+            <div class="btns">
+                <a href="{% url 'remover_lista' lista.id %}">DELETAR</a>
+                <a href="{% url 'page_editar_lista' lista.id %}">EDITAR</a>
+            </div>
+
+
+            <div class="list-head" style="text-decoration: none;">
+
+            </div>
+            <div class="list-body">
+                <div class="titulo-lista">
+                    {{ lista.nome }}
+                </div>
+             
+                {% for produto in lista.idproduto.all %}
+                <p>{{ produto.nome }}</p>
+                {% endfor %}
+                <div class="desc-lista">
+                    {{ lista.descricao }}
+                </div>
+                <div class="data-lista">
+                    {{ lista.data }}
+                </div>
+
+            </div>
+
+        </li>
+ 
+    </ul>
+</div>
+{% endblock %}

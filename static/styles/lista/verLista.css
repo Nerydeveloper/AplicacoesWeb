@@ -1,0 +1,72 @@
+.mainpage{
+    min-height: 90vh;
+}
+.mainpage>ul{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    min-height: 90vh;
+}
+.mainpage>ul>li{
+    min-height: 10%;
+    margin: 20px 10px;
+    min-width: 40%;
+    max-width: 50%;
+
+    background-color: transparent;
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255, 0.6);
+    backdrop-filter: blur(15px);
+   
+}
+
+.btns{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.btns>a{
+    text-decoration: none;
+    color: black;
+}
+.btns>a:hover{
+    color: red;
+}
+.mainpage>ul>li>.list-head{
+    width: 100%;
+    height: 40%;
+    background-color: rgb(179, 179, 179);
+    border-radius: 15px 15px 0 0;
+    
+}
+
+.mainpage>ul>li>.list-body{
+    width: 100%;
+    height: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+}
+.mainpage>ul>li>.list-body>.titulo-lista{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.mainpage>ul>li>.list-body>.desc-lista{
+    font-size: 1rem;
+    text-transform: capitalize;
+
+}
+.data-lista{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+
+}

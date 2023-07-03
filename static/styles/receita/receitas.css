@@ -1,0 +1,50 @@
+
+.mainpage{
+    margin-top: 30px;
+    width: 100%;
+    min-height: 90vh;
+}
+.mainpage>ul{
+    display: flex;
+    flex-flow: wrap; 
+    justify-content: space-around;
+}
+.mainpage>ul>li{
+    min-width: 200px;
+    width: 30%;
+    height: 300px; 
+    background-color: transparent;
+    margin-bottom: 20px;
+    border: 2px solid #fff; 
+    border-radius: 15px;
+}
+.list-head{
+    width: 100%;
+    height: 40%;
+    object-fit: contain;
+}
+.list-head>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0 ;
+}
+.list-body{
+    width: 100%;
+    height: 60%;
+    padding: 0 10px;
+}
+.titulo-receita{
+    height: 20%;
+}
+.desc-receita{
+    overflow: hidden; 
+  
+    text-overflow: ellipsis; /* adiciona “...” no final */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* quantidade de linhas */
+    -webkit-box-orient: vertical; /* conteúdo será apresentado verticalmente */
+}
+
+.no_receitas{
+    height: 90vh; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
+}

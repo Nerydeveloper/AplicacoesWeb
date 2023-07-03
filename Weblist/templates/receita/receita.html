@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>RECEITA {{ receita.nome }}</title>{% endblock %}
+{% block style %}<link rel="stylesheet" href="{% static 'styles/receita/receita.css' %}">{% endblock %} 
+
+{% block body %}
+
+    <div class="container">
+        <div class="btns">
+            <a href="{% url 'remover_receita' receita.id %}">DELETAR</a>
+            <a href="{% url 'page_editar_receita' receita.id %}">EDITAR</a>
+        </div>
+     
+        <div class="receitabox">
+             <div class="head_receita"> 
+                     {% if receita.image %}
+                     <img src="{{ receita.image.url }}" alt="">
+                     {% else %}
+                     <img src="https://www.gme.net.au/app/plugins/wp-media-folder/assets/images/default.png" alt="" >
+                     {% endif %}
+       
+             </div>
+             <div class="body_receita">
+                 <div class="titulo-receita">
+                     <h1>{{ receita.nome }}</h1> 
+                 </div>
+                 <div class="ingredientes-receita">
+                     <h4>Ingredientes</h4>
+                     <form action="{% url 'add_ingredientes_a_lista' receita.id %}" method="post">
+                         {% csrf_token %}
+                         <div class="produtos">
+                         {% for produto in receita.idproduto.all %}
+                      
+                             <div>
+                                 <p>{{ produto.nome }}</p>
+                             </div>
+                  
+                         {% endfor %}
+                        </div> 
+                        {% if receita.idproduto.all %} 
+                         <input type="submit" value="adicionar ingredientes a lista">
+                         {% endif %}
+                     </form>
+                     
+                 </div>
+                 <div class="modo_preparo-receita">
+                     <h4>Modo de preparo</h4>
+                     <p>{{ receita.modoPreparo }}</p>
+                 </div>
+             </div>
+
+        </div>
+      
+        
+       
+
+    </div>
+
+{% endblock %}

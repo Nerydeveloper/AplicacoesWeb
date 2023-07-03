@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="bck">
+        <img src="{% static 'midias/backgound/background-7533503_1280.jpg' %}" alt="">
+    </div>
+  
+    <section >
+        
+        <div class="container-form">
+            <div class="form-value">
+                <form action="{% url 'entrar' %}" method="POST">
+                    {% csrf_token %}
+                    <h2>login</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="login" id="login" required>
+                        <label for="login">Login</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="senha" id="senha" required>
+                        <label for="senha">Senha</label>
+                    </div>
+
+                    <div class="forget">
+                        <a href="">Esqueci minha senha</a>
+                        
+                    </div>
+
+                    <input type="submit" value="Entrar">
+                    <p id="msginform">{{ msg }}</p>
+                    <div class="register">
+                        <p>Não tem cadastro ? <a href="{% url 'page_efetuar_cadastro' %}">Cadastre-se</a></p>
+                    </div>
+                   
+                </form>
+            </div>
+    
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

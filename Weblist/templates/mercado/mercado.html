@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>MERCADOS</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/mercado/mercado.css' %}">{% endblock %}
+
+{% block body %}
+<div class="mainpage">
+    
+        {% if mercado %}
+        <div class="container">
+            <div class="container-mercado">
+                <h1>{{ mercado }}</h1>
+                <div class="btns">
+                    <a href="{% url 'page_editar_mercado' mercado.id %}">editar</a>
+    
+                    <a href="{% url 'remover_mercado' mercado.id %}">remover</a>
+                </div>
+    
+            </div>
+       
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#ID</th>
+                        <th scope="col">Produtos</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Oferta</th>
+                        <th scope="col">Categoria</th>
+                        <th>Editar</th>
+                        <th scope="col">Excluir</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in produtos %}
+                    <tr id="{{item.id}}">
+                        <td>{{item.id}}</td>
+                        <td>{{item.nome}}</td>
+                        <td>{{item.preco}}</td>
+                        <td>{{item.oferta}}</td>
+                        <td>{{item.categoria}}</td>
+                        <!-- Botão de exluir -->
+                        <td><a href="{% url 'page_editar_produto' item.id %}">editar</a></td>
+
+                        <td><a href="{% url 'remover_produto' item.id %}">remover</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        
+
+        {% else %}
+
+
+        <div class="no_receitas">
+
+            <h1>{{request.user}} Você ainda não cadastrou nenhum produto</h1>
+            <a href="{% url 'page_adiciona_produto' %}">
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon src="https://cdn.lordicon.com/qtqvorle.json" trigger="hover"
+                    colors="outline:#121331,primary:#646e78,secondary:#ebe6ef,tertiary:#4cb4fd"
+                    style="width:250px;height:250px">
+                </lord-icon>
+            </a>
+        </div>
+
+
+        {% endif %}
+
+</div>
+{% endblock %}

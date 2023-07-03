@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>{{produto.nome}}</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/produto/produto.css' %}">{% endblock %}
+
+{% block body %}
+<div class="mainpage">
+
+    {% if produto %}
+    <div class="container">
+        
+        <div class="produto">
+            <div class="imagem">
+                {% if produto.image %}
+                <img src="{{produto.image.url}}" alt="imagem do produto" width="30%">
+                {% else %}
+
+                {% endif %}
+            </div>
+            <div class="info">
+                <h1>{{produto.nome}}</h1>
+                <p>{{produto.categoria}}</p>
+                <p>{{produto.mercado}}</p>
+                <p>{{produto.preco}}</p>
+                <p>{{produto.oferta}}</p>
+            </div>
+            <div class="btns">
+                <a href="{% url 'page_editar_produto' produto.id %}">editar</a>
+    
+                <a href="{% url 'remover_produto' produto.id %}">remover</a>
+            </div>
+        </div>
+
+
+    </div>
+    {% else %}
+    <div class="container">
+        <h1>Produto não encontrado</h1>
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

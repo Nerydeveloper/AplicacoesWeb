@@ -1,0 +1,188 @@
+.container{
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .boxForm{
+     width: 400px;
+     min-height: 450px;
+     height: max-content;
+     border: 2px solid #fff;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .inputbox {
+     position: relative;
+     margin: 30px 0;
+     width: 310px;
+     border-bottom: 2px solid #fff;
+ 
+ }
+
+ .inputbox label{
+     position: absolute;
+     top: 50%;
+     left: 5px;
+     transform: translateY(-50%);
+     color: #fff;
+     font-size: 1em;
+     pointer-events: none;
+     transition: 1s;
+ }
+ input:focus ~ label,
+ input:valid ~ label{
+     top: -5px;
+ }
+ .inputbox input{
+     width: 100%;
+     height: 50px;
+     background: transparent;
+     border: none;
+     outline: none;
+     font-size: 1em;
+     padding: 0 35px 0 5px;
+     color: #fff;
+ }
+ 
+ .inputbox ion-icon{
+     position: absolute;
+     right: 8px; 
+     color: #fff;
+     font-size: 1.2em;
+     top: 20px;
+ }
+ .inputbox>p{
+    color: #cccccc4a;
+ }
+ .produtos{
+     padding: 0;
+     padding-right: 5px;
+     overflow: scroll; /* remove o estouro do elemento */
+     overflow-x: hidden; /* esconde o scroll horizontal */
+     text-overflow: ellipsis; /* adiciona “...” no final */
+     display: -webkit-box;
+     -webkit-line-clamp: 3; /* quantidade de linhas */
+     -webkit-box-orient: vertical; /* conteúdo será apresentado verticalmente */
+ 
+ }
+ .produtos::-webkit-scrollbar{
+    width: 10px;
+    background-color: rgb(0, 39, 39);
+    border-radius: 10px;
+ }
+
+ .produtos::-webkit-scrollbar-thumb{
+    background-color: #ccc;
+    border-radius: 10px;
+ }
+
+ input[type='submit']{
+     float: right;
+     background-color: #fff;
+     color: black;
+     border: 2px solid black;
+     border-radius: 10px;
+     padding: 10px 30px;
+     margin-bottom: 20px;
+ }
+ .labelcontainer{
+     display: block;
+     position: relative;
+     padding-left: 45px;
+     margin-bottom: 12px;
+     cursor: pointer;
+     font-size: 22px;
+ }
+ .labelcontainer input{
+     position: absolute;
+     opacity: 0;
+     cursor: pointer;
+ }
+ .check{
+     left: 0;
+     top: 0;
+     width: 25px;
+     height: 25px;
+     background-color: #ccc;
+     position: absolute;
+ }
+ .labelcontainer input:checked ~ .check{
+     background-color: aqua;
+ }
+ .selecionados input:checked ~ .check{
+     background-color: rgb(253, 253, 253);
+ }
+ 
+ .labelcontainer .check::after{
+     top: 5px;
+     left: 9px;
+     width: 5px;
+     height: 10px;
+     border: solid white;
+     border-width: 0 3px 3px 0;
+     -webkit-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     transform: rotate(45deg);
+ }
+ .check::after{
+     content: "";
+     position: absolute;
+     display: none;
+ }
+ .labelcontainer input:checked ~ .check::after{
+     display: block;
+ }
+
+
+
+ .containerproduto{
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+}
+.containerproduto input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.check{
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #ccc;
+    position: absolute;
+}
+.containerproduto input:checked ~ .check{
+    background-color: aqua;
+}
+.selecionados input:checked ~ .check{
+    background-color: rgb(255, 0, 0);
+}
+
+.containerproduto .check::after{
+    top: 5px;
+    left: 9px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.check::after{
+    content: "";
+    position: absolute;
+    display: none;
+}
+.containerproduto input:checked ~ .check::after{
+    display: block;
+}

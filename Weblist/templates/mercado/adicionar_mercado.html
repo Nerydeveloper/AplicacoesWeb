@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>ADICIONAR MERCADOS</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/mercado/addMercado.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action="{% url 'adiciona_mercado' %}" method="post">
+        {% csrf_token %}
+        <h2>Adicionar mercado</h2>
+        <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" name="nome" maxlength="30" required>
+            <label for="nomemercado">Nome</label> 
+        </div>
+
+
+        <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" name="endereco" required>
+            <label for="endereco">Endereço</label> 
+        </div>
+    
+    
+        <div> 
+            <input type="submit" value="Adicionar">
+        </div>
+    </form>
+</div>
+   
+{% endblock %}

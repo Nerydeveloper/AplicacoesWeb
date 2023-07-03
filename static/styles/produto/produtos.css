@@ -1,0 +1,56 @@
+.mainpage{
+    min-height: 90vh;
+}
+.containerprodutos>ul{
+    padding-top: 30px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+
+}
+.containerprodutos>ul>li{ 
+    min-width: 250px;
+    width: 30%;
+    min-height: 300px; 
+    border-radius: 15px;
+    border: 2px solid #fff;
+    margin-bottom: 20px;
+}
+.containerprodutos>ul>li>a{
+    text-decoration: none;
+}
+.btns{
+    position: absolute;
+
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.btns>a{
+    text-decoration: none;
+    color: black;
+}
+.btns>a:hover{
+    color: red;
+}
+.list-head{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    background-color: #ffffff89;
+    border-radius: 15px 15px 0 0;
+}
+.list-head>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 15px 0 0 ;
+}
+.list-body{
+    padding: 20px;
+}
+.no_receitas{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

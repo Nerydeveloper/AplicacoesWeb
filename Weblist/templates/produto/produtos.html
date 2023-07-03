@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>PRODUTOS</title>{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/produto/produtos.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="mainpage">
+    <div class="containerprodutos">
+        <ul>
+            {% if produtos %}
+            {% for produto in produtos %}
+
+            <li>
+                <div class="btns">
+
+                    <a href="{% url 'page_editar_produto' produto.id %}">editar</a>
+
+                    <a href="{% url 'remover_produto' produto.id %}">remover</a>
+
+                </div>
+                <a href="{% url 'produto_id' produto.id %}" style="background-color: aliceblue;">
+                    <div class="list-head">
+             
+                            {% if produto.image %}
+                            <img src="{{produto.image.url}}" alt="imagem do produto">
+                            {% else %}
+                            
+                            {% endif %} 
+                  
+                    </div>
+                    <div class="list-body">
+                        <h5>{{produto.nome}}</h5> 
+                        <p>Categoria: {{produto.categoria}}</p>
+                        <p>Mercado: {{produto.mercado.nome}}</p>
+                        <p>Preço: {{produto.preco}}</p>
+                        <p>Estavá em Oferta: {{produto.oferta}}</p>
+                    </div>
+
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+{% else %}
+<div class="no_receitas">
+
+    <h1>{{request.user}} Você ainda não cadastrou nenhum produto</h1>
+    <a href="{% url 'page_adiciona_produto' %}">
+        <figure class="gif">
+            <img src="{% static 'midias/gifs/wired-lineal-245-edit-document.gif' %}">
+          </figure>
+    </a>
+</div>
+{% endif %}
+
+</div>
+{% endblock %}

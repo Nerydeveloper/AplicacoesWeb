@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>EDITAR LISTA</title>{% endblock %}
+{% block style %}   
+    <link rel="stylesheet" href="{% static 'styles/lista/editarLista.css' %}">    
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="boxForm">
+        <form action="{% url 'editar_lista' lista.id %}" method="post">
+            {% csrf_token %}
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" name="titulo" value="{{lista.nome}}" id="nome" required>
+                <label for="nome">Titulo</label>
+            </div> 
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" name="descricao" value="{{lista.descricao}}" required>
+                <label class="labeldescricao" for="decricao">Descrição</label> 
+            </div>
+            
+           
+        
+            <div class="produtos">
+                <h2>produtos ja escolhidos</h2>
+                {% for produto in lista.idproduto.all %} 
+                <div>
+                    <label class="labelcontainer selecionados" for="{{produto.nome}}">{{ produto.nome }}
+                        <input type="checkbox" name="{{produto.nome}}" id="{{produto.nome}}" value="{{produto.id}}">
+                        <span class="check"></span>
+                    </label>
+                </div>
+          
+                {% endfor %}
+    
+                <h2>A escolher</h2>
+                {% for produto in produtosN %}
+    
+                <div>
+                    <label class="labelcontainer" for="{{produto.nome}}">{{ produto.nome }}
+                        <input type="checkbox" name="{{produto.nome}}" id="{{produto.nome}}" value="{{produto.id}}">
+                        <span class="check"></span>
+                    </label>
+                   
+                </div>
+      
+         
+                {% endfor %}
+            </div>
+         
+            <input type="submit" value="EDITAR">
+           
+        </form>
+        
+    </div>
+
+</div>
+
+   
+
+
+{% endblock %}

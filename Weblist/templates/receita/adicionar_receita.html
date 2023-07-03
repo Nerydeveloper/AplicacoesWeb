@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}<title>ADICIONAR RECEITA</title>{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'styles/receita/add_receitas.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container"> 
+    <div class="boxForm">
+        <form action="{% url 'add_receita' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" name="nome" id="nome" required>
+                <label for="nome">Nome</label>
+            </div>
+
+            {% if produto %}
+            <div class="produtos">
+                <p>Produtos</p> 
+                {% for produto in produto %}
+                <div>
+                    <label class="containerproduto" for="{{produto.nome}}">{{ produto.nome }}
+                        <input type="checkbox" name="{{produto.nome}}" id="{{produto.nome}}" value="{{produto.id}}">
+                        <span class="check"></span>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="inputbox">
+               <h5>Sem produtos</h5>
+               <p>Cadastre alguns produtos para poder adicionar a receita</p>
+               
+                
+            </div>
+            {% endif %}
+ 
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="text" name="mododepreparo" id="mododepreparo" required>
+                <label for="nome">Modo de Preparo</label>
+            </div>
+            <div class="inputbox">
+                <ion-icon name="person-outline"></ion-icon>
+                <input type="file" accept="image/*" name="imagem" id="imagem">
+                <label for="nome"></label>
+            </div>
+
+
+            
+
+            <input style="display: none;" type="text" class="form-control" id="idUser" name="idUser" required value="usuario.id">
+
+            {% if produto %}
+            <input type="submit" value="Criar Receita">
+            {% else %}
+            <a href="{% url 'page_adiciona_produto' %}">add produto</a>
+            <input type="submit" value="Criar Receita" disabled>
+
+            {% endif %}
+
+        </form>
+
+    </div>
+
+
+    <!--CONFERIR PRA QUE SERVER ESSE MSG NA VIEWS-->
+    {{msg}}
+
+</div>
+
+
+{% endblock %}

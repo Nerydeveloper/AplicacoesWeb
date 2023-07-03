@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;1,300&display=swap');
+
+
+*{
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+body{
+    background-color: #B73CF0;
+    overflow-y: hidden;
+    
+}
+body::-webkit-scrollbar {
+    width: 6px;
+    background: #ffffff;
+    
+}
+body::-webkit-scrollbar-thumb{
+    background: #F20530;
+}
+.icon-excluid{
+    position: absolute;
+    top: 50%;
+    left: 34%;
+    z-index: -1;
+}
+.containner-header{
+
+    height: 10vh;
+    background-color:#150D26;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 3px 10px 0 black;
+}
+.containner-header>nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+}
+.containner-header>nav>div>h1{
+    color: #fff;
+}
+.menu{
+    width: 50%;
+}
+.containner-header>nav>div>ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containner-header>nav>div>ul>li{
+    color: rgb(255, 255, 255);
+}
+.containner-header>nav>div>a{
+
+    color: #fff;
+}
+.containner-header>nav>div>a:hover,.containner-header>nav>div>ul>li:hover{
+    color: #0D0D0D;
+    cursor: pointer;
+}
+.body{
+    width: 100%;
+    display: flex;
+}
+.left{
+    width: 50%;
+    height: 90vh;
+    object-fit: contain;
+}
+.left>img{
+    width: 100%;
+    height: 100%;
+}
+.containner-form{
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.containner-form>h1{
+    background-color: #150D26;
+    width: 60%;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+}
+.containner-form>form{
+    width: 60%;
+    height: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+    background-color: #fff;
+}
+input{
+    padding: 15px;
+    border: none;
+    background-color: #0D0D0D;
+    color: #ffffff;
+    outline: none;
+    border-radius: 5px;
+    border-bottom: 3px solid #150D26;
+}
+.valor-oferta{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.valor-oferta>div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.valor-oferta>div>p,.valor-oferta>div>div>label{
+    text-transform: uppercase;
+}
+select{
+    width: 40%;
+    height: 50px;
+    text-indent: 10px;
+    background-color: #0D0D0D;
+    color: #ffffff92;
+    border: none;
+    outline: none;
+
+}
+.containner-form>form>input[type='submit']{
+    cursor: pointer;
+    width: 100%;
+}
+.containner-form>form>input:last-child:hover{
+    background-color: #150D26;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 1px 2px 12px 1px #0D0D0D;
+    color: #fff;
+}
+input[type='radio']{
+    display: none;
+    
+}
+.radio-container label {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    cursor: pointer;
+  }
+  
+  .custom-radio {
+    border: 1px solid #150D26;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+  }
+  
+  .custom-radio,
+  span {
+    transition: 0.5s ease;
+    color: #000;
+  }
+  
+  .custom-radio span {
+    content: '';
+    width: 23px;
+    height: 23px;
+    background: #3434348a;
+    border-radius: 50%;
+  }
+  
+  input[type='radio']:checked + .custom-radio {
+    border-color: #F20530;
+  }
+  
+  input[type='radio']:checked + .custom-radio span {
+    background: #F20530;
+  }

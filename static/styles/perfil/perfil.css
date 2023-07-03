@@ -1,0 +1,52 @@
+.center{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    
+}
+.center>.img{
+    width: 200px;
+    height: 200px;
+
+    object-fit: cover;
+    
+}
+.img>figure{
+    width: 100%;
+    height: 100%;
+}
+.img>figure>img{
+    width: 100%;
+    height: 100%;
+}
+.text{
+    width: 80%;
+    text-align: center;
+}
+h1{
+    font-size: 28px;
+}
+.dadoscriados{
+    height: 30vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.dadoscriados>div{
+    transition: .9s;
+    width: 20%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.dadoscriados>div:hover{
+    background-color: rgb(65, 65, 65);
+    border-radius: 15px;
+
+}

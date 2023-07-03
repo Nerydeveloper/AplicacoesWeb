@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+    <title>CADASTRO</title>
+</head>
+
+<body>
+    <div class="bck">
+        <img src="{% static 'midias/backgound/background-7533503_1280.jpg' %}" alt="">
+    </div>
+  
+    <section>
+        <div class="container-form">
+            <div class="form-value">
+                <form action="{% url 'cadastrar' %}" method="POST">
+                    {% csrf_token %}
+                    <h2>CADASTRO</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="name" id="name" required maxlength="20">
+                        <label for="name">Nome</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" name="email" id="email" required >
+                        <label for="email">email</label>
+                    </div>
+    
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password" id="password" required maxlength="20">
+                        <label for="password">Senha</label>
+                    </div>
+
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password_repeat" id="password_repeat" required maxlength="20">
+                        <label for="password_repeat">Repita a senha</label>
+                    </div>
+
+                    <p id="msginform">{{ msg }}</p>
+                    <input type="submit" value="criar conta">
+
+                    <div class="register">
+
+                        <p>Já tem cadastro ? <a href="{% url 'index' %}">Entre na conta</a></p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

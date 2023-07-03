@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'styles/perfil/perfil.css' %}">
+{% endblock %}
+
+{% block body %}
+    
+    <section class="center">
+        <div class="img">
+            <figure class="gif">
+                <img src="{% static 'midias/gifs/wired-lineal-21-avatar.gif' %}" >
+              </figure>
+        </div>
+        <div class="text">
+            <h1>{{ usuario }}</h1>
+            <div class="dadoscriados">
+                <div class="lista">
+                    <p>Total de listas:</p>
+                    <p>{{ lista }}</p>
+                </div>
+                <div class="receita">
+                    <p>Total de receitas:</p>
+                    <p>{{ receita }}</p>
+                </div>
+                <div class="produto">
+                    <p>Total de produtos:</p>
+                    <p>{{ produto }}</p>
+                </div>
+                <div class="mercado">
+                    <p>Total de mercados:</p>
+                    <p>{{ mercado }}</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+{% endblock %}
